@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cardápio de Jantar</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Cardápio de Jantar</h1>
+
+  <div id="login">
+  <label for="userType">Tipo de usuário:</label>
+  <select id="userType" onchange="mostrarCampoSenha()">
+    <option value="comum">Aluno</option>
+    <option value="master">Chef</option>
+  </select>
+  <div id="senhaDiv" style="display:none;">
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha" placeholder="Digite a senha" />
+  </div>
+  <button onclick="entrar()">Entrar</button>
+</div>
+
+  <div id="cadastro" style="display:none;">
+  <h2>Cadastrar opções de jantar</h2>
+  <input type="date" id="data" />
+  <input type="text" id="item" placeholder="Ex: arroz, feijão..." />
+  <button onclick="adicionarItem()">Adicionar</button>
+  <ul id="listaCadastro"></ul>
+</div>
+
+  <div id="visualizacao" style="display:none;">
+    <h2>Opções de jantar cadastradas</h2>
+    <ul id="listaVisualizacao"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
