@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Eventos</title>
+    <link rel="stylesheet" href="style.css"> <!-- Reutilizamos o CSS existente -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👁️</text></svg>">
+    <style>
+        /* Pequenos ajustes para a tela de consulta */
+        .container {
+            max-width: 800px; /* Um pouco mais largo para a visualização */
+            padding-top: 20px;
+        }
+        header {
+            justify-content: center;
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: var(--spacing-md);
+        }
+        .auth-section, #authScreen, #appContent #eventFormContainer {
+            display: none !important; /* Garante que nada de autenticação ou formulário apareça */
+        }
+        #eventsListSection {
+            border-top: none; /* Remove a borda superior se não tiver o formulário */
+            padding-top: 0;
+        }
+        .event-item .event-actions {
+            display: none; /* Esconde os botões de editar/excluir nesta tela */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Eventos Cadastrados</h1>
+        </header>
+
+        <div id="feedbackMessage" class="feedback-message"></div>
+
+        <section id="eventsListSection">
+            <div id="loadingEvents" class="loading-state">Carregando eventos...</div>
+            <div id="eventsList">
+                <!-- Os eventos serão carregados aqui pelo JavaScript -->
+            </div>
+            <p id="noEventsMessage" class="no-events-message hidden">Nenhum evento cadastrado ainda.</p>
+        </section>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+    <script src="view-script.js"></script>
+</body>
+</html>
